@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  overflow-x: hidden;
+}
+.container {
+  position: relative;
+}
+.hamburger {
+  width: 50px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  cursor: pointer;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  list-style-type: none;
+}
+ul li {
+  font-size: 2rem;
+  line-height: 8rem;
+}
+ul li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+ul li a:hover {
+  color: rgb(37, 18, 46);
+}
+.Nav-links {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(160, 33, 172, 1);
+  /*clip-path: circle(70px at 100% -10%);*/
+  clip-path: circle(0% at 100% 0);
+  z-index: 1;
+  transition: all 1s ease;
+}
+.line:nth-child(1).open {
+  transform: rotate(-45deg) translate(-10px, 12px);
+}
+.line:nth-child(2).open {
+  opacity: 0;
+}
+.line:nth-child(3).open {
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+.Nav-links.open {
+  clip-path: circle(141% at 99% 3%);
+  position: fixed;
+}
+.hamburger.open {
+  position: fixed;
+  z-index: 99;
+}
+.Nav-links li.open {
+  animation: fade-right 2s linear;
+}
+.li:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.Nav-links h1 {
+  text-shadow: rgba(0, 0, 0, 0.4);
+  padding: 5px;
+  position: absolute;
+  background-color: white;
+}
+.Nav-links h1 span {
+  color: rgb(66, 136, 124);
+}
+.Nav-links:hover {
+  width: 100%;
+}
+.line {
+  height: 6px;
+  background-color: white;
+  margin: 5px;
+  transition: all 0.3s linear;
+}
+.home {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("Bgimage.jpg") center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  z-index: -1;
+}
+.quote p {
+  font-family: Ink Free;
+  font-weight: 800;
+  background-color: white;
+  color: black;
+  word-wrap: none;
+  position: absolute;
+  font-size: 3.5rem;
+  top: 15%;
+  padding: 2%;
+  margin: 5%;
+}
+.p span {
+  opacity: 0;
+  transition: all 1s ease;
+  transform: translateY(-50px);
+}
+.p span.fade {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.MyKnow {
+  height: 100vh;
+  background-color: white;
+  display: grid;
+  grid-template-areas: "IMG Int";
+  grid-template-columns: repeat(2, 1fr);
+}
+.img {
+  grid-area: IMG;
+  margin: 10%;
+  background: white;
+  position: relative;
+  border-radius: 30px;
+  position: relative;
+  box-shadow: 1px 1px 30px 0px rgba(0, 0, 0, 0.75);
+  transform: scale(1, 1);
+  transition: all 0.5s ease;
+}
+.img:hover {
+  box-shadow: 2px 2px 50px 0px rgba(0, 0, 0, 0.75);
+  transform: scale(0.95, 0.95);
+}
+
+.div {
+  position: absolute;
+  height: 80%;
+  width: 100%;
+  object-fit: cover;
+  background-size: cover;
+  z-index: 99;
+  position: absolute;
+}
+.div::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.8);
+}
+.Myintro {
+  grid-area: Int;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.Myintro p {
+  display: flex;
+  flex-direction: column;
+}
+.Myintro p span {
+  font-size: 3rem;
+}
+.Myintro p span::first-letter {
+  color: rgb(66, 136, 124);
+}
+.Myintro p content {
+  font-size: 1.8rem;
+  font-weight: 100;
+}
+.Myintro p text {
+  font-family: Ink Free;
+  font-size: 1.4rem;
+  user-select: none;
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.social {
+  display: grid;
+  grid-template-areas: "F I T";
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  justify-self: center;
+  height: 20%;
+}
+.fb {
+  grid-area: F;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 30px;
+}
+.fb:hover {
+  background-color: #ddd;
+}
+.insta {
+  grid-area: I;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.insta:hover {
+  background-color: #ddd;
+}
+.twitter {
+  grid-area: T;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.twitter:hover {
+  background-color: #ddd;
+  border-bottom-right-radius: 30px;
+}
+.Mywork {
+  display: grid;
+  grid-template-areas: "F S T";
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 100vh;
+  background-color: #ddd;
+}
+.First {
+  grid-area: F;
+}
+.Second {
+  grid-area: S;
+}
+.Third {
+  grid-area: T;
+}
+.text {
+  position: absolute;
+  bottom: 35%;
+  right: 10px;
+}
+.ResMy {
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .quote p {
+    top: 25%;
+    font-size: 2rem;
+  }
+  .MyKnow {
+    display: none;
+    flex-direction: column;
+    position: relative;
+  }
+  .img {
+    transform: initial;
+    position: initial;
+    margin: 0;
+  }
+  .img:hover {
+    transform: initial;
+  }
+  .fb {
+    border-bottom-left-radius: 0px;
+  }
+  .twitter:hover {
+    border-bottom-right-radius: 0px;
+  }
+  .Nav-links h1 {
+    bottom: 0;
+    width: 100%;
+  }
+  .quote p {
+    font-size: 1.8rem !important;
+  }
+  .Myintro {
+    position: absolute;
+    bottom: 0;
+  }
+  .Myintro p {
+    text-align: center;
+  }
+  .text {
+    position: initial !important;
+  }
+  .social {
+    bottom: 45%;
+    border-bottom: 2px solid black;
+    height: 18%;
+  }
+  .div {
+    height: initial;
+  }
+  .ResMy {
+    display: initial;
+    height: 100vh;
+  }
+  .Rimg {
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent),url("MyImage.jpg") center;
+    box-shadow: 1px 1px 30px 0px rgba(0, 0, 0, 0.75);
+    border:0px solid transparent;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    height: 70vh;
+    margin: 20px;
+  }
+  .Rdetails{
+    width: 100%;
+    height: 10vh;
+    margin: auto 0;
+
+  }
+  .Rsocial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left:30%;
+  }
+  .Rsocial > div{
+    margin:30%;
+  }
+  .Myintro{
+    bottom: initial;
+  }
+  .Myintro p span{
+    font-size: 2rem;
+    margin: 0 4%;
+
+  }
+  .Myintro p content{
+    font-size: 1.4rem;
+    text-align: left;    
+    margin: 0 4%;
+
+  }
+  .Myintro p text{
+    font-size: 1.2rem;    
+    margin: 0 4%;
+
+  }
+}
